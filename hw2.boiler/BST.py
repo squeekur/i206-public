@@ -11,14 +11,15 @@
 class Node:
     #Constructor Node() creates node
     def __init__(self,word):
-        #WILL CREATE IN LAB
-        self.placeholder = None #REMOVE
+        self.word = word
+        self.right = None
+        self.left = None
+        self.count = 1
 
 class BSTree:
     #Constructor BSTree() creates empty tree
     def __init__(self, root=None):
-        #WILL CREATE IN LAB
-        self.placeholder = None #REMOVE
+        self.root = root
     
     #These are "external functions" that will be called by your main program - I have given these to you =)
     
@@ -48,9 +49,20 @@ class BSTree:
 
 #Function to add node with word as word attribute
 def _add(root, word):
-    #YOU FILL THIS IN
-    self.placeholder = None #REMOVE
-
+    if root.word == word:
+        root.count +=1
+        return
+    if root.word > word:
+        if root.left == None:
+            root.left = Node(word)
+        else:
+            _add(root.left, word)
+    else:
+        if root.right == None:
+            root.right = Node(word)
+        else:
+            _add(root.right, word)
+    
 #Function to find word in tree
 def _find(root, word):
     #YOU FILL THIS IN
@@ -68,5 +80,9 @@ def _height(root):
     
 #Function to print tree in order
 def _inOrderPrint(root):
-    #YOU FILL THIS IN
-    self.placeholder = None #REMOVE
+    if not root:
+        return
+    _inOrderPrint(root.left)
+    print root.word
+    print root.count
+    _inOrderPrint(root.right)

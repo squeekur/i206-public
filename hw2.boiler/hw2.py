@@ -12,7 +12,7 @@ from BST import *
 def main():
     T = BSTree()
     #Functions for use
-    #T.find(word)
+    #T.add(word)
     #T.find(word)
     #T.size()
     #T.height()
